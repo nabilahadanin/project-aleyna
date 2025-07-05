@@ -1,28 +1,26 @@
-import { useEffect, useState } from 'react'
-import { supabase } from './lib/supabase'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import NoteApp from './NoteApp'
+
+function Landing() {
+  return (
+    <div style={{ textAlign: 'center', padding: '4rem' }}>
+      <h1>Selamat datang 👋</h1>
+      <p>Catatan sederhana dengan React + Supabase</p>
+      <Link to="/app">
+        <button style={{ padding: '1rem 2rem', fontSize: '1rem' }}>Masuk Aplikasi</button>
+      </Link>
+    </div>
+  )
+}
 
 function App() {
-  const [notes, setNotes] = useState([])
-
-  useEffect(() => {
-    async function fetchNotes() {
-      const { data, error } = await supabase.from('notes').select('*')
-      if (error) console.error(error)
-      else setNotes(data)
-    }
-
-    fetchNotes()
-  }, [])
-
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Daftar Catatan</h1>
-      <ul>
-        {notes.map(note => (
-          <li key={note.id}>{note.text}</li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/app" element={<NoteApp />} />
+      </Routes>
+    </Router>
   )
 }
 
