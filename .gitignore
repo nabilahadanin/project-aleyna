@@ -1,0 +1,11 @@
+# Node modules
+/node_modules/
+node_modules/
+
+# Env file
+.env
+
+# Optional (VSCode, logs, system files)
+.vscode/
+*.log
+.DS_Store
