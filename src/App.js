@@ -4,7 +4,7 @@ import NoteApp from './NoteApp'
 function Landing() {
   return (
     <div style={{ textAlign: 'center', padding: '4rem' }}>
-      <h1>Selamat datang 👋</h1>
+      <h1>Selamat Datang, Sayang 👋</h1>
       <p>Aplikasi catatan dengan React + Supabase</p>
       <Link to="/app">
         <button>Masuk Aplikasi</button>
